@@ -1,3 +1,7 @@
+.mainWrapper {
+  background-color: rgb(68, 66, 66);
+}
+
 .main {
   margin: 3rem auto;
   width: 90%;

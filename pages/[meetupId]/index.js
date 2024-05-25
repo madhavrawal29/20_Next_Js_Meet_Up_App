@@ -11,3 +11,41 @@ export default function MeetupDetails() {
     />
   );
 }
+export async function getStaticPaths() {
+  return {
+    fallback: true,
+    paths: [
+      {
+        params: {
+          meetupId: "m1",
+        },
+      },
+      {
+        params: {
+          meetupId: "m2",
+        },
+      },
+    ],
+  };
+}
+
+export async function getStaticProps(context) {
+  // fetch data from API
+
+  const meetupId = context.params.meetupId;
+
+  console.log(meetupId);
+
+  return {
+    props: {
+      meetupData: {
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Bananavarieties.jpg/1200px-Bananavarieties.jpg",
+        id: meetupId,
+        title: "First meetup",
+        address: "Dummy address",
+        description: "Dummy description",
+      },
+    },
+  };
+}
