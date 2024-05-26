@@ -2,35 +2,48 @@
 
 import MeetupList from "@/components/meetups/MeetupList";
 import { MongoClient } from "mongodb";
+import Head from "next/head";
+import { Fragment } from "react";
 
-const DUMMY_MEETUPS = [
-  {
-    id: "m1",
-    title: "A first meetup",
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Bananavarieties.jpg/1200px-Bananavarieties.jpg",
-    address: "Some address",
-    description: "This is a first meetup",
-  },
-  {
-    id: "m2",
-    title: "A first meetup",
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Bananavarieties.jpg/1200px-Bananavarieties.jpg",
-    address: "Some second address",
-    description: "This is a second meetup",
-  },
-];
+// const DUMMY_MEETUPS = [
+//   {
+//     id: "m1",
+//     title: "A first meetup",
+//     image:
+//       "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Bananavarieties.jpg/1200px-Bananavarieties.jpg",
+//     address: "Some address",
+//     description: "This is a first meetup",
+//   },
+//   {
+//     id: "m2",
+//     title: "A first meetup",
+//     image:
+//       "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Bananavarieties.jpg/1200px-Bananavarieties.jpg",
+//     address: "Some second address",
+//     description: "This is a second meetup",
+//   },
+// ];
 
 export default function HomePage(props) {
-  return <MeetupList meetups={props.meetups} />;
+  return (
+    <Fragment>
+      <Head>
+        <title>React Meetups</title>
+        <meta
+          name="description"
+          content="Browse a huge list of highly acive React meetups!"
+        />
+      </Head>
+      <MeetupList meetups={props.meetups} />
+    </Fragment>
+  );
 }
 
 // export async function getServerSideProps(context) {
 //   const req = context.req;
 //   const res = context.res;
 
-//   return {
+//   return {>
 //     props: {
 //       meetups: DUMMY_MEETUPS,
 //     },
